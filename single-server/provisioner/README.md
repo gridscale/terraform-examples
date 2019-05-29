@@ -10,7 +10,7 @@ This example uses a null resource in order to porovision the storage with ansibl
 is needed only if the storage is for some reason recreated and you want ansible to
 reprovision the storage automatically again. This is archieved using a trigger. The
 null resource also depends on the server resource implicitly. This is what the
-`echo ${gridscale_server.server.id}` if for so please don't remove it. It also leverages
+`echo ${gridscale_server.server.id}` is for so please don't remove it. It also leverages
 the `remote-exec` provisioners timeout and retry functionality to wait for ssh to be
 available for ansible to work.
 
