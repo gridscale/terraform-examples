@@ -4,6 +4,9 @@ This example provisions a webserver using ansible and terraform. It creates an i
 based on the servers ip and name. In your ansible playbooks, to address the server use
 the server resources name i.e. `demo-complete-provisioner` as show in `main.yml`.
 
+In order to run the example fill in a ssh public key where it says
+"INSERT KEY" in the `gridscale_sshkey` resource.
+
 # Details
 
 This example uses a null resource in order to provision the storage with ansible. This
