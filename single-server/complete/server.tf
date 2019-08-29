@@ -1,4 +1,5 @@
-provider "gridscale" {}
+provider "gridscale" {
+}
 
 resource "gridscale_server" "server"{
   name = "demo-complete-server"
@@ -6,12 +7,12 @@ resource "gridscale_server" "server"{
   memory = 2
   storage {
     bootdevice = true
-    object_uuid = "${gridscale_storage.storage.id}"
+    object_uuid = gridscale_storage.storage.id
   }
   network {
-    object_uuid = "${gridscale_network.network.id}"
+    object_uuid = gridscale_network.network.id
   }
-  ipv4 = "${gridscale_ipv4.ip.id}"
+  ipv4 = gridscale_ipv4.ip.id
   power = true
 }
 
@@ -20,8 +21,8 @@ resource "gridscale_storage" "storage"{
   capacity = 10
   template {
     #template_uuid = "4db64bfc-9fb2-4976-80b5-94ff43b1233a"
-    template_uuid = "${data.gridscale_template.ubuntu.id}"
-    sshkeys = [ "${gridscale_sshkey.sshkey.id}" ]
+    template_uuid = data.gridscale_template.ubuntu.id
+    sshkeys = [ gridscale_sshkey.sshkey.id ]
   }
 }
 
