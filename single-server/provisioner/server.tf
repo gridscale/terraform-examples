@@ -8,7 +8,6 @@ resource "gridscale_server" "server" {
   ipv4 = gridscale_ipv4.ip.id
 
   storage {
-    bootdevice = true
     object_uuid = gridscale_storage.storage.id
   }
 }

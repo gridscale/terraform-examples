@@ -1,11 +1,11 @@
-provider "gridscale" {}
+provider "gridscale" {
+}
 
 resource "gridscale_server" "server" {
   name   = "demo-complete-server"
   cores  = 1
   memory = 2
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.storage.id
   }
   network {
@@ -19,7 +19,6 @@ resource "gridscale_storage" "storage" {
   name     = "demo-complete-storage"
   capacity = 10
   template {
-    #template_uuid = "4db64bfc-9fb2-4976-80b5-94ff43b1233a"
     template_uuid = data.gridscale_template.ubuntu.id
     sshkeys       = [gridscale_sshkey.sshkey.id]
   }

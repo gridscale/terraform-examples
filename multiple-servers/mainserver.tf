@@ -1,22 +1,22 @@
-provider "gridscale" {}
+provider "gridscale" {
+}
 
 resource "gridscale_server" "caching-server" {
   name   = "caching-server"
   cores  = 1
   memory = 2
   storage {
-    bootdevice  = true
-    object_uuid = gridscale_storage.caching-storage.id
+    object_uuid = gridscale_storage.caching-server.id
   }
   network {
-    object_uuid = gridscale_network.webserver-network.id
+    object_uuid = gridscale_network.webserver.id
   }
-  ipv4  = gridscale_ipv4.caching-server-ip.id
+  ipv4  = gridscale_ipv4.caching-server.id
   power = true
 }
 
-resource "gridscale_storage" "caching-storage" {
-  name     = "caching-server-storage"
+resource "gridscale_storage" "caching-server" {
+  name     = "caching-server"
   capacity = 10
   template {
     template_uuid = data.gridscale_template.ubuntu.id
@@ -24,11 +24,12 @@ resource "gridscale_storage" "caching-storage" {
   }
 }
 
-resource "gridscale_network" "webserver-network" {
-  name = "websever-network"
+resource "gridscale_network" "webserver" {
+  name = "webserver"
 }
 
-resource "gridscale_ipv4" "caching-server-ip" {}
+resource "gridscale_ipv4" "caching-server" {
+}
 
 resource "gridscale_sshkey" "sshkey" {
   name   = "complete-sshkey"
@@ -38,3 +39,4 @@ resource "gridscale_sshkey" "sshkey" {
 data "gridscale_template" "ubuntu" {
   name = "Ubuntu 18.04 LTS"
 }
+
