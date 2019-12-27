@@ -14,3 +14,4 @@ resource "gridscale_storage" "storage" {
   name     = "demo-storage"
   capacity = 11
 }
+
