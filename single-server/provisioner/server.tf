@@ -1,5 +1,4 @@
-provider "gridscale" {
-}
+provider "gridscale" {}
 
 resource "gridscale_server" "server" {
   name = "demo-complete-provisioner"
@@ -25,12 +24,12 @@ resource "gridscale_storage" "storage" {
 }
 
 resource "local_file" "ansible_inventory" {
-  content = "${gridscale_server.server.name} ansible_host=${gridscale_ipv4.ip.ip}"
+  content = gridscale_server.server.name ansible_host=gridscale_ipv4.ip.ip
   filename = "hosts"
 }
 
 resource "null_resource" "storage_provisioner" {
-  
+
   triggers = {
     storage_id = gridscale_storage.storage.id
   }
@@ -44,7 +43,7 @@ resource "null_resource" "storage_provisioner" {
       timeout = "2m"
     }
   }
- 
+
   provisioner "local-exec" {
     command = "ansible-playbook -i hosts main.yml"
   }
