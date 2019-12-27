@@ -5,7 +5,6 @@ resource "gridscale_server" "server" {
   cores  = 1
   memory = 2
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.storage.id
   }
   network {
