@@ -6,7 +6,6 @@ resource "gridscale_server" "caching-server" {
   cores  = 1
   memory = 2
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.caching-server.id
   }
   network {

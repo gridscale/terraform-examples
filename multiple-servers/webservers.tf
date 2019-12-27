@@ -3,7 +3,6 @@ resource "gridscale_server" "webserver1" {
   cores  = 1
   memory = 1
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.webserver1.id
   }
   network {
@@ -25,7 +24,6 @@ resource "gridscale_server" "webserver2" {
   cores  = 1
   memory = 1
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.webserver2.id
   }
   network {
@@ -47,7 +45,6 @@ resource "gridscale_server" "webserver3" {
   cores  = 1
   memory = 1
   storage {
-    bootdevice  = true
     object_uuid = gridscale_storage.webserver3.id
   }
   network {
