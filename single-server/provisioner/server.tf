@@ -1,11 +1,11 @@
 provider "gridscale" {}
 
 resource "gridscale_server" "server" {
-  name = "demo-complete-provisioner"
-  cores = 1
+  name   = "demo-complete-provisioner"
+  cores  = 1
   memory = 2
-  power = true
-  ipv4 = gridscale_ipv4.ip.id
+  power  = true
+  ipv4   = gridscale_ipv4.ip.id
 
   storage {
     object_uuid = gridscale_storage.storage.id
@@ -13,18 +13,18 @@ resource "gridscale_server" "server" {
 }
 
 resource "gridscale_storage" "storage" {
-  name = "demo-complete-provisioner-storage"
+  name     = "demo-complete-provisioner-storage"
   capacity = 10
   template {
     template_uuid = data.gridscale_template.centos.id
-    hostname = "demo-complete-provisioner"
-    sshkeys = [ gridscale_sshkey.ssh_key.id ]
+    hostname      = "demo-complete-provisioner"
+    sshkeys       = [gridscale_sshkey.ssh_key.id]
   }
 }
 
 resource "local_file" "ansible_inventory" {
-  content      = "${gridscale_server.server.name} ansible_host = ${gridscale_ipv4.ip.ip}"
-  filename     = "hosts"
+  content  = "${gridscale_server.server.name} ansible_host = ${gridscale_ipv4.ip.ip}"
+  filename = "hosts"
 }
 
 resource "null_resource" "storage_provisioner" {
@@ -34,11 +34,11 @@ resource "null_resource" "storage_provisioner" {
   }
 
   provisioner "remote-exec" {
-    inline = [ "echo ${gridscale_server.server.id}" ]
+    inline = ["echo ${gridscale_server.server.id}"]
     connection {
-      user = "root"
-      port = 22
-      host = gridscale_ipv4.ip.ip
+      user    = "root"
+      port    = 22
+      host    = gridscale_ipv4.ip.ip
       timeout = "2m"
     }
   }
@@ -53,7 +53,7 @@ data "gridscale_template" "centos" {
 }
 
 resource "gridscale_sshkey" "ssh_key" {
-  name = "demo-complete-proisioner-sshkey"
+  name   = "demo-complete-proisioner-sshkey"
   sshkey = "INSERT KEY"
 }
 
