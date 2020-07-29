@@ -23,8 +23,8 @@ resource "gridscale_storage" "storage" {
 }
 
 resource "local_file" "ansible_inventory" {
-  content = gridscale_server.server.name ansible_host=gridscale_ipv4.ip.ip
-  filename = "hosts"
+  content      = "${gridscale_server.server.name} ansible_host = ${gridscale_ipv4.ip.ip}"
+  filename     = "hosts"
 }
 
 resource "null_resource" "storage_provisioner" {
