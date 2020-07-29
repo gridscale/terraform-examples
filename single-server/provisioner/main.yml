@@ -2,18 +2,18 @@
 - hosts: demo-complete-provisioner
   remote_user: root
   tasks:
-  - name: install apache
-    package:
-      name: httpd
-      state: present
-  - name: enable apache as a service
-    systemd:
-      name: httpd
-      enabled: yes
-      state: started
-  - name: open port 80 on firewall
-    firewalld:
-      service: http
-      permanent: yes
-      immediate: yes
-      state: enabled
+    - name: install apache
+      package:
+        name: httpd
+        state: present
+    - name: enable apache as a service
+      systemd:
+        name: httpd
+        enabled: yes
+        state: started
+    - name: open port 80 on firewall
+      firewalld:
+        service: http
+        permanent: yes
+        immediate: yes
+        state: enabled
