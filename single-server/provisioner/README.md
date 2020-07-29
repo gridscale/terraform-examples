@@ -2,11 +2,11 @@
 
 This example provisions a web-server using Ansible and Terraform. It creates an Ansible inventory based on the server's IP address and name. In your Ansible playbooks, to reference the server use the server resource name. In this example, `demo-complete-provisioner` as show in `main.yml`.
 
-Note: In order to run the example remember to fill in a proper SSH public key where it says `"INSERT KEY"` in the `gridscale_sshkey` resource.
+Note: You need Ansible installed and in PATH to run this example.
 
 ## Running the Example
 
-As usual set `GRIDSCALE_TOKEN` and `GRIDSCALE_UUID` environment variables to the values you retrieved from your panel.
+As usual, set `GRIDSCALE_TOKEN` and `GRIDSCALE_UUID` environment variables to the values you retrieved from your panel.
 
     $ export GRIDSCALE_TOKEN=project-a-api-token
     $ export GRIDSCALE_UUID=your-user-id
@@ -32,7 +32,9 @@ Outputs:
 server_ip = 45.17.50.177
 ```
 
-E voilà, you have a new server resource along with a running Apache web-server.
+E voilà, you have a new server resource along with a running Apache web-server. Try it:
+
+    $ curl -i http://45.17.50.177
 
 ## Details
 
