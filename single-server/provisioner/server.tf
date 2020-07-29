@@ -1,5 +1,8 @@
 provider "gridscale" {}
 
+data "gridscale_public_network" "pubnet" {
+}
+
 resource "gridscale_server" "server" {
   name   = "demo-complete-provisioner"
   cores  = 1
@@ -9,6 +12,10 @@ resource "gridscale_server" "server" {
 
   storage {
     object_uuid = gridscale_storage.storage.id
+  }
+
+  network {
+    object_uuid = data.gridscale_public_network.pubnet.id
   }
 }
 
