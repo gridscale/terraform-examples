@@ -53,7 +53,7 @@ data "gridscale_template" "centos" {
 }
 
 resource "gridscale_sshkey" "ssh_key" {
-  name   = "demo-complete-proisioner-sshkey"
+  name   = "demo-complete-provisioner-sshkey"
   sshkey = "INSERT KEY"
 }
 
