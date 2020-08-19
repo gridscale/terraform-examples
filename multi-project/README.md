@@ -1,4 +1,4 @@
-# Multi-project example
+# Multi-project Example
 
 This example shows how you can leverage gridscale multi-project feature with Terraform.
 

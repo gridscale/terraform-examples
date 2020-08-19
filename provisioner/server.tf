@@ -1,4 +1,10 @@
-provider "gridscale" {}
+terraform {
+  required_providers {
+    gridscale = {
+      source = "gridscale/gridscale"
+    }
+  }
+}
 
 data "gridscale_public_network" "pubnet" {
 }

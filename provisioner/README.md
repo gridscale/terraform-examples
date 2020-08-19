@@ -8,7 +8,7 @@ Note: You need Ansible installed and in PATH to run this example.
 
 As usual, set `GRIDSCALE_TOKEN` and `GRIDSCALE_UUID` environment variables to the values you got from your panel.
 
-    $ export GRIDSCALE_TOKEN=project-a-api-token
+    $ export GRIDSCALE_TOKEN=your-api-token
     $ export GRIDSCALE_UUID=your-user-id
 
 Open `server.tf` and paste your SSH public key where it says `"INSERT KEY"`. Then do
@@ -19,7 +19,7 @@ And then do a
 
     $ terraform apply
 
-Type `yes` when terraform asks you to. In the end, you should see something like following output in your terminal:
+Type `yes` when Terraform asks you to. In the end, you should see something like following output in your terminal:
 
 ```raw
 …
