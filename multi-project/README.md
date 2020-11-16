@@ -24,21 +24,26 @@ This example shows two projects, "a" and "b" split into sub directories.
     │   └── example.tf
     └── README.md
 
-Each directory contains a simple text file that can be sourced before running `terraform apply`:
+Each directory contains a simple text file that can be **sourced (command to source .envrc file: `source .envrc`)** BEFORE running `terraform apply`:
 
 ```shell
-$ cat project-a/.envrc
+$ cd project-a
+$ cat .envrc
 export GRIDSCALE_TOKEN=project-a-api-token
 export GRIDSCALE_URL=https://api.gridscale.io
 export GRIDSCALE_UUID=your-user-id
+$ source .envrc
+$ terraform apply
 ```
 
 ```shell
-$ cat project-b/.envrc
+$ cd project-b
+$ cat .envrc
 export GRIDSCALE_TOKEN=project-b-api-token
 export GRIDSCALE_URL=https://api.gridscale.io
 export GRIDSCALE_UUID=your-user-id
-
+$ source .envrc
+$ terraform apply
 ```
 
 Tip: you can use tools such as direnv(1) to easily switch between environment variables.
