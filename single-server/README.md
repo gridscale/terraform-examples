@@ -1,6 +1,6 @@
 # A Simple Server
 
-This is a simple example that show how to use resources and data sources to create a basic running server.
+This is a simple example that shows how to use resources and data sources to create a basic running server.
 
 ## Running the Example
 
