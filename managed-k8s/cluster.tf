@@ -13,4 +13,29 @@ resource "gridscale_paas" "cluster" {
   timeouts {
     create = "20m"
   }
+  parameter {
+    param = "k8s_worker_node_count"
+    type  = "int"
+    value = "3"
+  }
+  parameter {
+    param = "k8s_worker_node_cores"
+    type  = "int"
+    value = "2"
+  }
+  parameter {
+    param = "k8s_worker_node_ram"
+    type  = "int"
+    value = "4"
+  }
+  parameter {
+    param = "k8s_worker_node_storage"
+    type  = "int"
+    value = "30"
+  }
+  parameter {
+    param = "k8s_worker_node_storage_type"
+    type  = "string"
+    value = "storage"
+  }
 }
