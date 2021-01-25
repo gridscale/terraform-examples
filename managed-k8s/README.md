@@ -17,3 +17,13 @@ whereas each worker node has
 - and 30 GB of storage
 
 Provisioning time varies of course but we can expect to take around 10 minutes to spin up the cluster.
+
+## TODO
+
+Missing:
+
+- Show how to retrieve kubeconfig
+- Run through a minimum hello world example:
+  - create a deployment
+  - create a service
+- destroy everything
