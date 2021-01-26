@@ -9,6 +9,7 @@ To make use of the examples, you will need a [gridscale.io](https://my.gridscale
 - [single-server](single-server/README.md): A simple example that shows how a complete server with attached storage, template selection, and networking can be described in Terraform.
 - [provisioner](provisioner/README.md): Shows how to integrate Ansible with Terraform to provision your servers and assign them your Ansible roles.
 - [multi-project](multi-project/README.md): Describes how you could get Terraform to work in a multi-project scenario.
+- [pubkey-from-file](pubkey-from-file/README.md): Example that shows how to load an SSH public key file with `file()`.
 
 ## More
 
