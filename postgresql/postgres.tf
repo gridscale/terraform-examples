@@ -7,13 +7,20 @@ terraform {
   }
 }
 
-resource "gridscale_postgresql" "terra-postgres-test" {
+resource "gridscale_postgresql" "my_postgres_cluster" {
   name = "test"
-  # The PostgreSQL release of this instance. For convenience, please use gscloud (https://github.com/gridscale/gscloud) to get the list of available postgreSQL service releases.
-  release = "13"
-  # Performance class of postgreSQL service. Available performance classes at the time of writing: `standard`, `high`, `insane`, `ultra`.
-  performance_class = "standard"
-  # Maximum CPU core count. The PostgreSQL instance's CPU core count will be autoscaled based on the workload. 
-  # The number of cores stays between 1 and `max_core_count`.
+
+  # The PostgreSQL release of this instance. For convenience, please use gscloud
+  # (https://github.com/gridscale/gscloud) to get the list of available
+  # PostgreSQL releases.
+  release = "12"
+
+  # Performance class of the PaaS service. Available performance classes at
+  # the time of writing are `standard`, `high`, `insane`, `ultra`.
+  performance_class = "insane"
+
+  # Maximum CPU core count. The PostgreSQL instance's CPU core count will be
+  # autoscaled based on the workload. The number of cores stays between 1 and
+  # `max_core_count`.
   max_core_count = 20
 }
