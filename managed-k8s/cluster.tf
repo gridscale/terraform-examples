@@ -7,8 +7,8 @@ terraform {
   }
 }
 
-resource "gridscale_k8s" "my_cluster" {
-  name = "my_cluster"
+resource "gridscale_k8s" "mycluster" {
+  name = "mycluster"
 
   # Define the desired Kubernetes release. Define which release of GSK will be
   # used for the cluster. For convenience, please use gscloud to get the list of
