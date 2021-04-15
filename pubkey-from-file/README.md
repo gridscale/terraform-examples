@@ -1,6 +1,6 @@
-# SSH pubkey from file
+# Load SSH Public Key From File
 
-This is a small example that shows how to load an SSH public key file from disk with `file()`
+This is a small example that shows how to load a SSH public key file from disk with `file()`:
 
 ```hcl
 resource "gridscale_sshkey" "demo" {
