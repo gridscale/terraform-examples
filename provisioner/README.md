@@ -11,7 +11,15 @@ As usual, set `GRIDSCALE_TOKEN` and `GRIDSCALE_UUID` environment variables to th
     $ export GRIDSCALE_TOKEN=your-api-token
     $ export GRIDSCALE_UUID=your-user-id
 
-Open `server.tf` and paste your SSH public key where it says `"INSERT KEY"`. Then do
+Open `server.tf` and paste your SSH public key where it says `"INSERT KEY"`. Please make also sure that you have the key loaded in your SSH agent, e.g., by adding it with
+
+    $ ssh-add ~/.ssh/your-key
+
+You can check if the key is loaded with
+
+    $ ssh-add -L
+
+Then do
 
     $ terraform init
 
