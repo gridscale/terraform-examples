@@ -10,4 +10,4 @@ In this example we will provision a MS SQL server with backup-to-object-storage 
 
 whereas the gridscale object storage access key can be created via `"gridscale_object_storage_accesskey"` resource.
 
-**Note**: a bucket must present in your gridscale object storage before enabling backup-to-object-storage feature of a MS SQL server.
+**Note**: a bucket must be created in your gridscale object storage before enabling backup-to-object-storage feature of a MS SQL server.
