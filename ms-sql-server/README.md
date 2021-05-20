@@ -1,6 +1,6 @@
 # MS SQL Server Example
 
-This example shows how you can manage a MS SQL server with Terraform using the `"gridscale_mssql"` resource.
+This example shows how you can manage a MS SQL server with Terraform using the `"gridscale_sqlserver"` resource.
 
 Before you run Terraform, you need to set the `GRIDSCALE_TOKEN` and `GRIDSCALE_UUID` environment variables to their appropriate values. Take a look at the `.envrc` file for all variables.
 

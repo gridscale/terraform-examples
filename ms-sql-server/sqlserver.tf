@@ -12,7 +12,7 @@ resource "gridscale_object_storage_accesskey" "my-backup" {
 
 # Assume that a bucket named "backup" is created.
 
-resource "gridscale_mssql" "my-mssql" {
+resource "gridscale_sqlserver" "my-sqlserver" {
 	name = "my MS SQL server"
     # The PostgreSQL release of this instance. For convenience, please use gscloud
     # (https://github.com/gridscale/gscloud) to get the list of available
