@@ -7,20 +7,25 @@ terraform {
   }
 }
 
+# Assume that a bucket named "backup" is created. Following creates an access
+# key for this.
 resource "gridscale_object_storage_accesskey" "my-backup" {
 }
 
-# Assume that a bucket named "backup" is created.
 
-resource "gridscale_sqlserver" "my-sqlserver" {
-	name = "my MS SQL server"
-    # The PostgreSQL release of this instance. For convenience, please use gscloud
-    # (https://github.com/gridscale/gscloud) to get the list of available
-    # MS SQL server releases.
+resource "gridscale_sqlserver" "myserver" {
+	name = "myserver"
+  # The Microsoft SQL Server release of this instance. There is only one release
+  # available now: 2019.
 	release = "2019"
-    # Performance class of the MS SQL service. Available performance classes at
-    # the time of writing are `standard`, `high`, `insane`, `ultra`.
+
+  # Performance class of the MS SQL service. Available performance classes are
+  # `standard`, `high`, `insane`, `ultra`. The performance_class also determines
+  # how many cores and memory the instance will get.
 	performance_class = "standard"
+
+  # This allows to easily connect your object storage with your new MS SQL
+  # Server instance. With this you can write your backups to that bucket.
 	s3_backup {
         backup_bucket = "backup"
         backup_access_key = gridscale_object_storage_accesskey.my-backup.access_key
